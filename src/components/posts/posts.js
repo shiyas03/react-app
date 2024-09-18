@@ -1,0 +1,53 @@
+import { Component } from 'react'
+import SinglePost from '../single-post/single-post';
+
+class Posts extends Component {
+
+    state = {
+        posts: [
+            { title: 'title 1', description: 'description 1' },
+            { title: 'title 2', description: 'description 2' },
+        ],
+        postTitle: 'Posts Title'
+    }
+
+    updateTitleHandler(title) {
+        // e.preventDefault()
+        this.setState({
+            postTitle: title
+        })
+    }
+
+    titleHandler = (title) => {
+        // e.preventDefault()
+        this.setState({
+            postTitle: title
+        })
+    }
+
+    render() {
+        setTimeout(() => {
+            const posts = [...this.state.posts];
+            posts[0].title = 'modified title 1';
+            posts[1].title = 'modified title 2';
+
+            this.setState({
+                posts,
+            })
+        }, 3000);
+
+        return (
+            <div className=''>
+                <div>{this.state.postTitle}</div>
+                <button onClick={this.updateTitleHandler.bind(this, 'modified 1')}>update</button> <br />
+                <button onClick={this.titleHandler.bind(this, 'modified 2')}>update</button> <br />
+                {/* <a href='https://www.google.co.in/' onClick={(e)=> this.titleHandler(e)}>update</a> <br />
+                <a href='https://www.google.co.in/' onClick={(e)=> this.updateTitleHandler(e)}>update</a> <br /> */}
+                <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
+                <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
+            </div>
+        )
+    }
+}
+
+export default Posts;

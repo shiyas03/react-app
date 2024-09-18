@@ -1,16 +1,20 @@
 // import logo from './logo.svg';
 import './App.css';
-import Button from './components/button/button'
-import HelloWorld from './components/hello-world/hello-world'
+// import Button from './components/button/button'
+// import HelloWorld from './components/hello-world/hello-world'
+import Posts from './components/posts/posts'
 
 function App() {
   return (
     <div className="">
-      <Button name="First Button"/>
+
+      <Posts />
+
+      {/* <Button name="First Button"/>
       <Button name="Second Button"/>
       
       <HelloWorld text="Hello World" />
-      <HelloWorld text="Good Morning" />
+      <HelloWorld text="Good Morning" /> */}
     </div>
   );
 }
