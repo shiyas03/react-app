@@ -7,6 +7,7 @@ class Posts extends Component {
         posts: [
             { title: 'title 1', description: 'description 1' },
             { title: 'title 2', description: 'description 2' },
+            { title: 'title 3', description: 'description 3' },
         ],
         postTitle: 'Posts Title',
         showPost: false
@@ -32,6 +33,24 @@ class Posts extends Component {
         })
     }
 
+    getPosts() {
+        let posts = this.state.posts.map((post) => {
+            return (
+                <SinglePost title={post.title} description={post.description} />
+            )
+        })
+        return (
+            // <div>{posts}</div>
+            <div>{
+                this.state.posts.map((post,i) => {
+                    return (
+                        <SinglePost key={i} title={post.title} description={post.description} />
+                    )
+                })}
+            </div>
+        )
+    }
+
     render() {
         setTimeout(() => {
             const posts = [...this.state.posts];
@@ -43,15 +62,15 @@ class Posts extends Component {
             })
         }, 3000);
 
-        let posts = null;
-        if (this.state.showPost) {
-            posts = (
-                <div>
-                    <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
-                    <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
-                </div>
-            );
-        }
+        // let posts = null;
+        // if (this.state.showPost) {
+        //     posts = (
+        //         <div>
+        //             <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
+        //             <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
+        //         </div>
+        //     );
+        // }
 
         return (
             <div className=''>
@@ -63,10 +82,12 @@ class Posts extends Component {
                 <a href='https://www.google.co.in/' onClick={(e)=> this.updateTitleHandler(e)}>update</a> <br /> */}
 
                 {/* {posts} */}
-                {this.state.showPost && (<div>
+                {/* {this.state.showPost && (<div>
                     <SinglePost title={this.state.posts[0].title} description={this.state.posts[0].description} />
                     <SinglePost title={this.state.posts[1].title} description={this.state.posts[1].description} />
-                </div>)}
+                </div>)} */}
+
+                {this.getPosts()}
             </div>
         )
     }
