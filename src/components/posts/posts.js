@@ -6,9 +6,9 @@ class Posts extends Component {
 
     state = {
         posts: [
-            { title: 'title 1', description: 'description 1' },
-            { title: 'title 2', description: 'description 2' },
-            { title: 'title 3', description: 'description 3' },
+            { id:'1', title: 'title 1', description: 'description 1' },
+            { id:'2', title: 'title 2', description: 'description 2' },
+            { id:'3', title: 'title 3', description: 'description 3' },
         ],
         postTitle: 'Posts Title',
         showPost: false
@@ -34,6 +34,13 @@ class Posts extends Component {
         })
     }
 
+    changeTitleHandler = (id, e) => {
+        const postIndex = this.state.posts.findIndex((post) => post.id === id);
+        const posts = [...this.state.posts]
+        posts[postIndex].title = e.target.value
+        this.setState({ posts, })
+    }
+
     getPosts() {
         // let posts = this.state.posts.map((post) => {
         //     return (
@@ -42,10 +49,10 @@ class Posts extends Component {
         // })
         return (
             // <div>{posts}</div>
-            <div>{
-                this.state.posts.map((post,i) => {
+            <div className="p-5 w-1/3 border-2">{
+                this.state.posts.map((post, i) => {
                     return (
-                        <SinglePost key={i} title={post.title} description={post.description} />
+                        <SinglePost key={post.id} title={post.title} titleChange={this.changeTitleHandler.bind(this, post.id)} description={post.description} />
                     )
                 })}
             </div>
@@ -53,15 +60,15 @@ class Posts extends Component {
     }
 
     render() {
-        setTimeout(() => {
-            const posts = [...this.state.posts];
-            posts[0].title = 'modified title 1';
-            posts[1].title = 'modified title 2';
+        // setTimeout(() => {
+        //     const posts = [...this.state.posts];
+        //     posts[0].title = 'modified title 1';
+        //     posts[1].title = 'modified title 2';
 
-            this.setState({
-                posts,
-            })
-        }, 3000);
+        //     this.setState({
+        //         posts,
+        //     })
+        // }, 3000);
 
         // let posts = null;
         // if (this.state.showPost) {
