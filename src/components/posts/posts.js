@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import SinglePost from '../single-post/single-post';
+import AddPost from '../add-post/add-post';
 
 class Posts extends Component {
 
@@ -34,11 +35,11 @@ class Posts extends Component {
     }
 
     getPosts() {
-        let posts = this.state.posts.map((post) => {
-            return (
-                <SinglePost title={post.title} description={post.description} />
-            )
-        })
+        // let posts = this.state.posts.map((post) => {
+        //     return (
+        //         <SinglePost title={post.title} description={post.description} />
+        //     )
+        // })
         return (
             // <div>{posts}</div>
             <div>{
@@ -88,7 +89,9 @@ class Posts extends Component {
                 </div>)} */}
 
                 {this.getPosts()}
+                <AddPost />
             </div>
+
         )
     }
 }
