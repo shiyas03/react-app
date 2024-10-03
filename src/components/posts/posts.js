@@ -1,14 +1,15 @@
 import { Component } from 'react'
 import SinglePost from '../single-post/single-post';
 import AddPost from '../add-post/add-post';
+import Dialog from '../dialog/dialog'
 
 class Posts extends Component {
 
     state = {
         posts: [
-            { id:'1', title: 'title 1', description: 'description 1' },
-            { id:'2', title: 'title 2', description: 'description 2' },
-            { id:'3', title: 'title 3', description: 'description 3' },
+            { id: '1', title: 'title 1', description: 'description 1' },
+            { id: '2', title: 'title 2', description: 'description 2' },
+            { id: '3', title: 'title 3', description: 'description 3' },
         ],
         postTitle: 'Posts Title',
         showPost: false
@@ -52,7 +53,9 @@ class Posts extends Component {
             <div className="p-5 w-1/3 border-2">{
                 this.state.posts.map((post, i) => {
                     return (
-                        <SinglePost key={post.id} title={post.title} titleChange={this.changeTitleHandler.bind(this, post.id)} description={post.description} />
+                        <SinglePost key={post.id} description={post.description} addPost={<AddPost />} >
+                            <input type="text" value={post.title} onChange={this.changeTitleHandler.bind(this, post.id)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John" required />
+                        </SinglePost>
                     )
                 })}
             </div>
@@ -81,7 +84,11 @@ class Posts extends Component {
         // }
 
         return (
-            <div className=''>
+            <div className='space-y-3'>
+
+                <Dialog>
+                    <div>dialog props data</div>
+                </Dialog>
                 <div>{this.state.postTitle}</div>
                 <button onClick={this.toggleHandler}>{this.state.showPost ? 'hide post' : 'show post'}</button>
                 {/* <button onClick={this.updateTitleHandler.bind(this, 'modified 1')}>update</button> <br />
@@ -97,6 +104,8 @@ class Posts extends Component {
 
                 {this.getPosts()}
                 <AddPost />
+
+
             </div>
 
         )

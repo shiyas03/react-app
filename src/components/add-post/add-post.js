@@ -21,7 +21,7 @@ class AddPost extends Component {
 
     render() {
         return (
-            <div className="p-5 w-1/3 border-2">
+            <div className="p-5 w-full border-2">
                 <h2 className="text-2xl">Add Post</h2>
                 <form className="space-y-5" onSubmit={this.addPostHandler}>
                     <div>
