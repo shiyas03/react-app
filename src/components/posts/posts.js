@@ -5,14 +5,27 @@ import Dialog from '../dialog/dialog'
 
 class Posts extends Component {
 
-    state = {
-        posts: [
-            { id: '1', title: 'title 1', description: 'description 1' },
-            { id: '2', title: 'title 2', description: 'description 2' },
-            { id: '3', title: 'title 3', description: 'description 3' },
-        ],
-        postTitle: 'Posts Title',
-        showPost: false
+    constructor(props){
+        super(props)
+        this.state = {
+            posts: [
+                { id: '1', title: 'title 1', description: 'description 1' },
+                { id: '2', title: 'title 2', description: 'description 2' },
+                { id: '3', title: 'title 3', description: 'description 3' },
+            ],
+            postTitle: 'Posts Title',
+            showPost: false
+        }
+        console.log('posts.js constructor is called')
+    }
+
+    static getDerivedStateFromProps(props,state){
+        console.log('posts.js derived called')
+        return state;
+    }
+
+    componentDidMount(){
+        console.log('posts.js mount is called')
     }
 
     updateTitleHandler(title) {
@@ -82,6 +95,8 @@ class Posts extends Component {
         //         </div>
         //     );
         // }
+
+        console.log('posts.js render is called')
 
         return (
             <div className='space-y-3'>
