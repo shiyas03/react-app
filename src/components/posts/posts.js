@@ -5,7 +5,7 @@ import Dialog from '../dialog/dialog'
 
 class Posts extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             posts: [
@@ -19,13 +19,14 @@ class Posts extends Component {
         console.log('posts.js constructor is called')
     }
 
-    static getDerivedStateFromProps(props,state){
+    static getDerivedStateFromProps(props, state) {
         console.log('posts.js derived called')
         return state;
     }
 
-    componentDidMount(){
-        console.log('posts.js mount is called')
+    shouldComponentUpdate(nestProps, nextState) {
+        console.log('posts.js should component fired')
+        return true;
     }
 
     updateTitleHandler(title) {
@@ -124,6 +125,19 @@ class Posts extends Component {
             </div>
 
         )
+    }
+
+    getSnapshotBeforeUpdate(preProps, preState) {
+        console.log('posts.js snapshot fired')
+        return null;
+    }
+
+    componentDidUpdate(preProps, preState, snapshot) {
+        console.log('posts.js componentDidUpdate fired')
+    }
+
+    componentDidMount() {
+        console.log('posts.js mount is called')
     }
 }
 

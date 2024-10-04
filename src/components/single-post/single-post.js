@@ -6,14 +6,15 @@ class SinglePost extends Component {
         console.log("SinglePost constructor is called")
     }
 
-    static getDerivedStateFromProps(prop, state){
-        console.log("SinglePost derived is called")
-    }
+    // static getDerivedStateFromProps(prop, state){
+    //     console.log("SinglePost derived is called")
+    // }
 
-    componentDidMount(){
-        console.log("SinglePost mount is caeed")
+    shouldComponentUpdate(nextProps, nextState){
+        console.log("SinglePost should component update is fired")
+        return true;
     }
-
+    
     render() {
         console.log("SinglePost render is called")
         return (
@@ -25,6 +26,23 @@ class SinglePost extends Component {
                 <div>{this.props.addPost}</div>
             </div>
         )
+    }
+
+    getSnapshotBeforeUpdate(preProps, preState){
+        console.log('singlePost snapshot fired')
+        return null;
+    }
+
+    componentDidUpdate(preProps, preState, snapshot){
+        console.log('singlePost component did update fired')
+    }
+
+    componentDidMount(){
+        console.log("SinglePost component did mount is fired")
+    }
+
+    componentWillUnmount(){
+        console.log('single post component will unmount fired')
     }
 }
 
