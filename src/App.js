@@ -5,14 +5,25 @@ import './App.css';
 import Posts from './components/posts/posts'
 import SideBar from './components/sideBar/sideBar';
 import ButtonContext from './context/buttonContext';
+import UserContext from './context/usercontext';
 
 function App() {
+  
+  let userData = {
+    name: 'John',
+    greet: function(){
+      return 'Hello ' + this.name
+    }
+  }
+
   return (
     <div className="flex px-5">
 
       <div className="w-1/4">
         <ButtonContext.Provider value="side button context" >
-          <SideBar />
+          <UserContext.Provider value={userData}>
+            <SideBar />
+          </UserContext.Provider>
         </ButtonContext.Provider>
       </div>
       <div className="w-3/4">
