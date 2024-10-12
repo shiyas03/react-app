@@ -10,7 +10,7 @@ export default class Navigation extends Component {
                 <ButtonContext.Consumer>
                     {(value) => {
 
-                        return <div>
+                        return <div className="flex flex-col">
                             <a href="#">{value}</a>
                             <UserContext.Consumer>
                                 {(usevalue) => {

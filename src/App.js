@@ -6,12 +6,13 @@ import Posts from './components/posts/posts'
 import SideBar from './components/sideBar/sideBar';
 import ButtonContext from './context/buttonContext';
 import UserContext from './context/usercontext';
+import { ErrorBoundary } from './errorBoundary/errorBoundary';
 
 function App() {
-  
+
   let userData = {
     name: 'John',
-    greet: function(){
+    greet: function () {
       return 'Hello ' + this.name
     }
   }
@@ -20,11 +21,13 @@ function App() {
     <div className="flex px-5">
 
       <div className="w-1/4">
-        <ButtonContext.Provider value="side button context" >
-          <UserContext.Provider value={userData}>
-            <SideBar />
-          </UserContext.Provider>
-        </ButtonContext.Provider>
+        <ErrorBoundary>
+          <ButtonContext.Provider value="side button context" >
+            <UserContext.Provider value={userData}>
+              <SideBar />
+            </UserContext.Provider>
+          </ButtonContext.Provider>
+        </ErrorBoundary>
       </div>
       <div className="w-3/4">
         <Posts />
