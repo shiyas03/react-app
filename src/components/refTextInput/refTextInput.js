@@ -6,9 +6,9 @@ export class RefTextInput extends Component{
         this.inputRef = React.createRef()
     }
 
-    focusInput = () =>{
+    focusInput = (value) =>{
         this.inputRef.current.focus();
-        this.inputRef.current.value = 'focused';
+        this.inputRef.current.value = value;
     }
     render(){
         return(
@@ -18,7 +18,7 @@ export class RefTextInput extends Component{
                     <input type="text" ref={this.inputRef} className="border border-gray-500" />
                 </div>
                 <div>
-                    <button className="bg-red-500 px-2 py-1 text-white" onClick={this.focusInput}>focus</button>
+                    <button className="bg-red-500 px-2 py-1 text-white" onClick={this.focusInput.bind(this,'child ref')}>focus</button>
                 </div>
             </div>
         )

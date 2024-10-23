@@ -2,13 +2,14 @@
 import './App.css';
 // import Button from './components/button/button'
 // import HelloWorld from './components/hello-world/hello-world'
-import Posts from './components/posts/posts'
+// import Posts from './components/posts/posts'
 import SideBar from './components/sideBar/sideBar';
 import ButtonContext from './context/buttonContext';
 import UserContext from './context/usercontext';
 import { ErrorBoundary } from './errorBoundary/errorBoundary';
-import Category from './components/category/category';
-import { RefTextInput } from './components/refTextInput/refTextInput';
+// import Category from './components/category/category';
+// import { RefTextInput } from './components/refTextInput/refTextInput';
+import PrentRefTextInput from './components/refTextInput/parenttRef';
 
 function App() {
 
@@ -32,9 +33,9 @@ function App() {
         </ErrorBoundary>
       </div>
       <div className="w-3/4 space-y-5">
-        <RefTextInput />
-        <Category name='Category Title'/>
-        <Posts />
+        <PrentRefTextInput />
+        {/* <Category name='Category Title'/>
+        <Posts /> */}
       </div>
 
       {/* <Button name="First Button"/>
