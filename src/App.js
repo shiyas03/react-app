@@ -7,6 +7,7 @@ import SideBar from './components/sideBar/sideBar';
 import ButtonContext from './context/buttonContext';
 import UserContext from './context/usercontext';
 import { ErrorBoundary } from './errorBoundary/errorBoundary';
+import Category from './components/category/category';
 
 function App() {
 
@@ -29,7 +30,8 @@ function App() {
           </ButtonContext.Provider>
         </ErrorBoundary>
       </div>
-      <div className="w-3/4">
+      <div className="w-3/4 space-y-5">
+        <Category name='Category Title'/>
         <Posts />
       </div>
 
