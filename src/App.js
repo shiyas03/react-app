@@ -8,6 +8,7 @@ import ButtonContext from './context/buttonContext';
 import UserContext from './context/usercontext';
 import { ErrorBoundary } from './errorBoundary/errorBoundary';
 import Category from './components/category/category';
+import { RefTextInput } from './components/refTextInput/refTextInput';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         </ErrorBoundary>
       </div>
       <div className="w-3/4 space-y-5">
+        <RefTextInput />
         <Category name='Category Title'/>
         <Posts />
       </div>
