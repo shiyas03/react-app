@@ -9,16 +9,16 @@ export default class CallBackRefInputText extends Component {
         }
     }
 
-    componentDidMount(){
-        this.textInput.focus();
-        this.textInput.value = 'callback input ref'
-    }
+    // componentDidMount(){
+    //     this.textInput.focus();
+    //     this.textInput.value = 'callback input ref'
+    // }
 
     render(){
         return(
             <div>
                 <div>callback ref</div>
-                <input type="text" className="border border-gray-500" ref={this.inputRef} />
+                <input type="text" className="border border-gray-500" ref={this.props.inputRef} />
             </div>
         )
     }
