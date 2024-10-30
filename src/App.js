@@ -10,6 +10,7 @@ import { ErrorBoundary } from './errorBoundary/errorBoundary';
 // import Category from './components/category/category';
 // import { RefTextInput } from './components/refTextInput/refTextInput';
 import PrentRefTextInput from './components/refTextInput/parenttRef';
+import CallBackRefInputText from './components/callBackRef/callbackRef';
 
 function App() {
 
@@ -33,7 +34,9 @@ function App() {
         </ErrorBoundary>
       </div>
       <div className="w-3/4 space-y-5">
+
         <PrentRefTextInput />
+        <CallBackRefInputText />
         {/* <Category name='Category Title'/>
         <Posts /> */}
       </div>
