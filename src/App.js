@@ -16,6 +16,7 @@ import Cat from './components/mouseTracker/cat';
 // import ParentForwardingRef from './components/forwardingRef/parentForwardRef';
 // import TableFragment from './components/tableFragment/tableFragment';
 import MouseTracker from './components/mouseTracker/mouseTracker';
+import UserPropsType from './components/userPropTypes/userPropTypes';
 
 function App() {
 
@@ -27,7 +28,10 @@ function App() {
   }
 
   return (
-    <Cat />
+    <div>
+      <UserPropsType />
+      <Cat />
+    </div>
     // <MouseTracker />
     // <div className="flex px-5">
 
@@ -52,7 +56,7 @@ function App() {
 
     //   {/* <Button name="First Button"/>
     //   <Button name="Second Button"/>
-      
+
     //   <HelloWorld text="Hello World" />
     //   <HelloWorld text="Good Morning" /> */}
     // </div>
