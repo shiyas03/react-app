@@ -13,6 +13,7 @@ import PrentRefTextInput from './components/refTextInput/parenttRef';
 // import CallBackRefInputText from './components/callBackRef/callbackRef';
 import ParentCallbackTextInput from './components/callBackRef/parentCallbackref';
 import ParentForwardingRef from './components/forwardingRef/parentForwardRef';
+import TableFragment from './components/tableFragment/tableFragment';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         </ErrorBoundary>
       </div>
       <div className="w-3/4 space-y-5">
+        <TableFragment />
         <ParentForwardingRef />
         <PrentRefTextInput />
         <ParentCallbackTextInput />
